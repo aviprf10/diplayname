@@ -22,6 +22,7 @@ export default function App() {
       const fullName = `${firstName} ${lastName}`;
       setFullName(fullName);
     }
+    
   };
 
   return (
@@ -29,12 +30,12 @@ export default function App() {
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
-          <input type="text" value={firstName} onChange={handleFirstNameChange} />
+          <input type="text" name="firstName" value={firstName} onChange={handleFirstNameChange} />
         </label>
         <br />
         <label>
           Last Name:
-          <input type="text" value={lastName} onChange={handleLastNameChange} />
+          <input type="text" name="lastName" value={lastName} onChange={handleLastNameChange} />
         </label>
         <br />
         <button type="submit" disabled={!firstName || !lastName}>
