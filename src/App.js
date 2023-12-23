@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import './App.css';
 
@@ -16,13 +15,12 @@ export default function App() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevents the form from submitting in the traditional way
+    event.preventDefault();
 
     if (firstName && lastName) {
       const fullName = `${firstName} ${lastName}`;
       setFullName(fullName);
     }
-    
   };
 
   return (
@@ -30,12 +28,12 @@ export default function App() {
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
-          <input type="text" name="firstName" value={firstName} onChange={handleFirstNameChange} />
+          <input type="text" value={firstName} onChange={handleFirstNameChange} />
         </label>
         <br />
         <label>
           Last Name:
-          <input type="text" name="lastName" value={lastName} onChange={handleLastNameChange} />
+          <input type="text" value={lastName} onChange={handleLastNameChange} />
         </label>
         <br />
         <button type="submit" disabled={!firstName || !lastName}>
