@@ -41,6 +41,7 @@ const FullNameForm = () => {
           First Name:
           <input
             type="text"
+            pattern="^-?[0-9]\d*\.?\d*$"
             value={firstName}
             onChange={handleFirstNameChange}
             required
@@ -51,6 +52,7 @@ const FullNameForm = () => {
           Last Name:
           <input
             type="text"
+            pattern="^-?[0-9]\d*\.?\d*$"
             value={lastName}
             onChange={handleLastNameChange}
             required
