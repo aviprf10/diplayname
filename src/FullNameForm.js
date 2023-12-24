@@ -9,7 +9,7 @@ const FullNameForm = () => {
 
   const handleFirstNameChange = (e) => {
     const input = e.target.value;
-    if (/^[a-zA-Z\s]*$/.test(input) || input === '') {
+    if (/^[a-zA-Z0-9\s]*$/.test(input) || input === '') {
       setFirstName(input);
     }
   };
