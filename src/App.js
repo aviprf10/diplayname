@@ -1,85 +1,13 @@
 import React, { useState } from 'react';
-
-const FullNameForm = () => {
-  // State to store first and last name
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  // State to store the full name for display
-  const [fullName, setFullName] = useState('');
-  // State to track whether the form is valid for submission
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  // Function to handle input changes
-  const handleFirstNameChange = (e) => {
-    const input = e.target.value;
-    if (/^[a-zA-Z]*$/.test(input) || input === '') {
-      setFirstName(input);
-      validateForm();
-    }
-  };
-
-  const handleLastNameChange = (e) => {
-    const input = e.target.value;
-    if (/^[a-zA-Z]*$/.test(input) || input === '') {
-      setLastName(input);
-      validateForm();
-    }
-  };
-
-  // Function to validate the form
-  const validateForm = () => {
-    setIsFormValid(firstName.trim() !== '' && lastName.trim() !== '');
-  };
-
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Check if the form is valid before proceeding
-    if (isFormValid) {
-      // Concatenate first and last name to form the full name
-      const newFullName = `${firstName} ${lastName}`;
-      // Set the full name in state
-      setFullName(newFullName);
-    }
-  };
-
+import FullNameForm from './FullNameForm';
+function App() {
   return (
-    <div>
-      <h1>Full name display</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            value={firstName}
-            onChange={handleFirstNameChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Last Name:
-          <input
-            type="text"
-            value={lastName}
-            onChange={handleLastNameChange}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">
-          Submit
-        </button>
-      </form>
-
-      {fullName && (
-        <div>
-          <h2>Full Name:</h2>
-          <p>{fullName}</p>
-        </div>
-      )}
+    <div className="App">
+      <header className="App-header">
+        <FullNameForm />
+      </header>
     </div>
   );
-};
+}
 
-export default FullNameForm;
+export default App;
