@@ -8,16 +8,16 @@ const FullNameForm = () => {
   const [fullName, setFullName] = useState('');
 
   const handleFirstNameChange = (e) => {
-    const input = e.target.value;
-    if (/^[a-zA-Z0-9\s]*$/.test(input) || input === '') {
-      setFirstName(input);
+    const re = /[0-9A-F:]+/g;
+    if (!re.test(e.key)) {
+      e.preventDefault();
     }
   };
 
   const handleLastNameChange = (e) => {
-    const input = e.target.value;
-    if (/^[a-zA-Z\s]*$/.test(input) || input === '') {
-      setLastName(input);
+    const re = /[0-9A-F:]+/g;
+    if (!re.test(e.key)) {
+      e.preventDefault();
     }
   };
 
