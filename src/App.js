@@ -11,13 +11,19 @@ const FullNameForm = () => {
 
   // Function to handle input changes
   const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
-    validateForm();
+    const input = e.target.value;
+    if (/^[a-zA-Z]*$/.test(input) || input === '') {
+      setFirstName(input);
+      validateForm();
+    }
   };
 
   const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-    validateForm();
+    const input = e.target.value;
+    if (/^[a-zA-Z]*$/.test(input) || input === '') {
+      setLastName(input);
+      validateForm();
+    }
   };
 
   // Function to validate the form
