@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 
 const FullNameForm = () => {
-  // State to store first and last name
+  
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  // State to store the full name for display
+  
   const [fullName, setFullName] = useState('');
 
-  // Function to handle input changes
   const handleFirstNameChange = (e) => {
     const input = e.target.value;
-    if (/^[a-zA-Z]*$/.test(input) || input === '') {
+    if (/^[a-zA-Z\s]*$/.test(input) || input === '') {
       setFirstName(input);
     }
   };
 
   const handleLastNameChange = (e) => {
     const input = e.target.value;
-    if (/^[a-zA-Z]*$/.test(input) || input === '') {
+    if (/^[a-zA-Z\s]*$/.test(input) || input === '') {
       setLastName(input);
     }
   };
