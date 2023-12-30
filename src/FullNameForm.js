@@ -1,50 +1,29 @@
 import React, { useState } from 'react';
 
-const FullNameForm = () => {
-  
+const NameForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  
-  const [fullName, setFullName] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleFirstNameChange = (e) => {
-    const input = e.target.value;
-    if (/^[a-zA-Z0-9\s]*$/.test(input) || input === '') {
-      setFirstName(input);
-    }
-  };
-
-  const handleLastNameChange = (e) => {
-    const input = e.target.value;
-    if (/^[a-zA-Z0-9\s]*$/.test(input) || input === '') {
-      setLastName(input);
-    }
-  };
-
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Check if both first name and last name are non-empty
-    if (firstName.trim() !== '' && lastName.trim() !== '') {
-      // Concatenate first and last name to form the full name
-      const newFullName = `${firstName} ${lastName}`;
-      // Set the full name in state
-      setFullName(newFullName);
+
+    if (firstName && lastName) {
+      setSubmitted(true);
+    } else {
+      alert('Please fill in both fields');
     }
   };
 
   return (
     <div>
-      <h1>Full name display</h1>
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
           <input
             type="text"
-            pattern="[0-9]*"
             value={firstName}
-            onChange={handleFirstNameChange}
-            required
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
         <br />
@@ -52,25 +31,24 @@ const FullNameForm = () => {
           Last Name:
           <input
             type="text"
-            pattern="[0-9]*"
             value={lastName}
-            onChange={handleLastNameChange}
-            required
+            onChange={(e) => setLastName(e.target.value)}
           />
         </label>
         <br />
-        <button type="submit">
+        <button type="submit" disabled={submitted}>
           Submit
         </button>
       </form>
 
-      {fullName && (
+      {submitted && (
         <div>
-          <p>Full Name: {fullName}</p>
-       </div>
+          <h2>Full Name:</h2>
+          <p>{`${firstName} ${lastName}`}</p>
+        </div>
       )}
     </div>
   );
 };
 
-export default FullNameForm;
+export default NameForm;
