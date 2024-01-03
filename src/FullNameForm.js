@@ -43,8 +43,7 @@ const NameForm = () => {
 
       {submitted && (
         <div>
-          <h2>Full Name:</h2>
-          <p>{`${firstName} ${lastName}`}</p>
+          <p>Full Name: {`${firstName} ${lastName}`}</p>
         </div>
       )}
     </div>
