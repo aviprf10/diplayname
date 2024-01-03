@@ -17,6 +17,7 @@ const NameForm = () => {
 
   return (
     <div>
+      <h1>Full Name Display</h1>
       <form onSubmit={handleSubmit}>
         <label>
           First Name:
